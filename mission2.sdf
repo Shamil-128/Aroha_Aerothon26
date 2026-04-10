@@ -8,6 +8,23 @@
     <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
     <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
     <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Magnetometer' filename='gz-sim-magnetometer-system'/>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    
+    <plugin name='gz::sim::systems::AirPressure' filename='gz-sim-air-pressure-system'/>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>10.0438</latitude_deg>
+      <longitude_deg>76.3242</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
     <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
     <gravity>0 0 -9.8000000000000007</gravity>
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
@@ -190,8 +207,26 @@
 
     <include>
       <uri>model://qr_code</uri>
-      <name>target_qr_1</name>
+      <name>target_qr_w</name>
       <pose>2.0 0 0.1 0 0 0</pose> 
+    </include>
+
+    <include>
+      <uri>model://qr_code_blue</uri>
+      <name>target_qr_b</name>
+      <pose>4.0 0 0.1 0 0 0</pose> 
+    </include>
+
+    <include>
+      <uri>model://qr_code_red</uri>
+      <name>target_qr_r</name>
+      <pose>6.0 0 0.1 0 0 0</pose> 
+    </include>
+
+    <include>
+      <uri>model://qr_code_green</uri>
+      <name>target_qr_g</name>
+      <pose>8.0 0 0.1 0 0 0</pose> 
     </include>
     
   </world>
