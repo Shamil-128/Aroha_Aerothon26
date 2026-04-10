@@ -1,8 +1,8 @@
-# 🚀 AeroTHON 26 - Mission Simulation Setup
+# AeroTHON 26 - Mission Simulation Setup
 
 Follow these steps to integrate the competition corridor and QR targets directly into your PX4/Gazebo environment. This "Direct Placement" method ensures all textures and models load automatically.
 
-## 📥 Installation
+## Installation
 
 ### 1. Clone the Repository
 ```bash
