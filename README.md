@@ -8,15 +8,24 @@ Follow these steps to integrate the competition corridor and QR targets directly
 ```bash
 git clone [https://github.com/Shamil-128/Aroha_Aerothon26.git](https://github.com/Shamil-128/Aroha_Aerothon26.git)
 cd Aroha_Aerothon26
+```
 
-# Move the world file
+### 2. Move the world file
+```bash
 cp mission2.sdf ~/PX4-Autopilot/Tools/simulation/gz/worlds/
+```
 
-# Move the QR code models
+### 3. Move the QR code models
+```bash
 cp -r models/* ~/PX4-Autopilot/Tools/simulation/gz/models/
+```
 
-# Launching
+### 4. Launching
+```bash
 make px4_sitl gz_x500_mission2
+```
 
-# Launch from a specific point
+### 4(optional). Launch from a specific point
+```bash
 PX4_GZ_MODEL_POSE="x,y,z,roll,pitch,yaw" make px4_sitl gz_x500_mission2
+```
