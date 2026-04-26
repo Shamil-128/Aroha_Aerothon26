@@ -1,5 +1,19 @@
 <sdf version='1.10'>
-  <world name='skyscan_baylands'>
+  <world name='mission2'>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"></plugin>
+    
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"></plugin>
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"></plugin>
+    <plugin filename="gz-sim-magnetometer-system" name="gz::sim::systems::Magnetometer"></plugin>
+    <plugin filename="gz-sim-air-pressure-system" name="gz::sim::systems::AirPressure"></plugin>
+    <plugin filename="gz-sim-altimeter-system" name="gz::sim::systems::Altimeter"></plugin>
+
     <physics type='ode'>
       <max_step_size>0.0040000000000000001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -39,62 +53,16 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/baylands</uri>
       <name>park</name>
-      <pose>205 155 -1 0 0 0</pose>
+      <pose>205 155 0 0 0 0</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coast Water</uri>
       <name>coast_waves</name>
       <pose>0 0 -2 0 0 0</pose>
     </include>
-    <model name='arena_foundation'>
-      <static>true</static>
-      <pose>260 80 0.050000000000000003 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>60 40 0.10000000000000001</size>
-            </box>
-          </geometry>
-          <surface>
-            <friction>
-              <ode/>
-            </friction>
-            <bounce/>
-            <contact/>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>60 40 0.10000000000000001</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
-            <diffuse>0.300000012 0.300000012 0.300000012 1</diffuse>
-          </material>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <self_collide>false</self_collide>
-    </model>
     <model name='takeoff_zone'>
       <static>true</static>
-      <pose>232 80 0.11 0 0 0</pose>
+      <pose>232 80 0.236900000000 0 0 0</pose>
       <link name='link'>
         <visual name='visual'>
           <geometry>
@@ -124,41 +92,9 @@
       </link>
       <self_collide>false</self_collide>
     </model>
-    <model name='forward_corridor_floor'>
-      <static>true</static>
-      <pose>242.5 83.5 0.11 0 0 0</pose>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>10 3.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.100000001 0.600000024 0.200000003 1</ambient>
-            <diffuse>0.100000001 0.600000024 0.200000003 1</diffuse>
-          </material>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <self_collide>false</self_collide>
-    </model>
     <model name='forward_wall_left'>
       <static>true</static>
-      <pose>242.5 85.349999999999994 1.7 0 0 0</pose>
+      <pose>242.5 85.349999999999994 1.8200000000000001 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -203,7 +139,7 @@
     </model>
     <model name='forward_wall_right'>
       <static>true</static>
-      <pose>242.5 81.650000000000006 1.7 0 0 0</pose>
+      <pose>242.5 81.650000000000006 1.8200000000000001 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -246,41 +182,9 @@
       </link>
       <self_collide>false</self_collide>
     </model>
-    <model name='return_corridor_floor'>
-      <static>true</static>
-      <pose>242.5 76.5 0.11 0 0 0</pose>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>10 3.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.800000012 0.400000006 0.100000001 1</ambient>
-            <diffuse>0.800000012 0.400000006 0.100000001 1</diffuse>
-          </material>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <self_collide>false</self_collide>
-    </model>
     <model name='return_wall_left'>
       <static>true</static>
-      <pose>242.5 78.349999999999994 1.7 0 0 0</pose>
+      <pose>242.5 78.349999999999994 1.8200000000000001 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -325,7 +229,7 @@
     </model>
     <model name='return_wall_right'>
       <static>true</static>
-      <pose>242.5 74.650000000000006 1.7 0 0 0</pose>
+      <pose>242.5 74.650000000000006 1.8200000000000001 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -370,7 +274,7 @@
     </model>
     <model name='obstacle_1'>
       <static>true</static>
-      <pose>239 76 1.6100000000000001 0 0 0</pose>
+      <pose>239 76 1.8 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -416,7 +320,7 @@
     </model>
     <model name='obstacle_2'>
       <static>true</static>
-      <pose>243 77 1.6100000000000001 0 0 0</pose>
+      <pose>243 77 1.8 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -462,7 +366,7 @@
     </model>
     <model name='obstacle_3'>
       <static>true</static>
-      <pose>246 75.5 1.6100000000000001 0 0 0</pose>
+      <pose>246 75.5 1.8 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -506,41 +410,9 @@
       </link>
       <self_collide>false</self_collide>
     </model>
-    <model name='main_arena'>
-      <static>true</static>
-      <pose>268 80 0.11 0 0 0</pose>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>40 30 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.5 0.699999988 0.400000006 1</ambient>
-            <diffuse>0.5 0.699999988 0.400000006 1</diffuse>
-          </material>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <self_collide>false</self_collide>
-    </model>
     <model name='red_zone'>
       <static>true</static>
-      <pose>275 85 0.12 0 0 0</pose>
+      <pose>275 85 0.22 0 0 0</pose>
       <link name='link'>
         <visual name='visual'>
           <geometry>
@@ -573,22 +445,22 @@
     <include>
       <uri>file:///home/ubuntu-shamil/PX4-Autopilot/Tools/simulation/gz/models/qr_code_blue</uri>
       <name>target_blue</name>
-      <pose>255 90 0.13 0 0 0</pose>
+      <pose>255 90 0.22 0 0 0</pose>
     </include>
     <include>
       <uri>file:///home/ubuntu-shamil/PX4-Autopilot/Tools/simulation/gz/models/qr_code_red</uri>
       <name>target_red</name>
-      <pose>260 75 0.13 0 0 0</pose>
+      <pose>260 75 0.22 0 0 0</pose>
     </include>
     <include>
       <uri>file:///home/ubuntu-shamil/PX4-Autopilot/Tools/simulation/gz/models/qr_code_green</uri>
       <name>target_green</name>
-      <pose>270 68 0.13 0 0 0</pose>
+      <pose>270 68 0.22 0 0 0</pose>
     </include>
     <include>
       <uri>file:///home/ubuntu-shamil/PX4-Autopilot/Tools/simulation/gz/models/qr_code</uri>
       <name>target_base</name>
-      <pose>283.5 90 0.13 0 0 0</pose>
+      <pose>283.5 90 0.22 0 0 0</pose>
     </include>
     <light name='sunUTC' type='directional'>
       <pose>0 0 500 0 0 0</pose>
